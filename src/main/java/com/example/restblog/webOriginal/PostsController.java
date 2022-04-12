@@ -1,6 +1,6 @@
-package com.example.restblog.web;
+package com.example.restblog.webOriginal;
 
-import com.example.restblog.data.Post;
+import com.example.restblog.dataOriginal.Post;
 import com.example.restblog.data.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

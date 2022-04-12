@@ -1,7 +1,7 @@
 package com.example.restblog.security;
 
-import com.example.restblog.data.User;
-import com.example.restblog.data.UserRepository;
+import com.example.restblog.dataOriginal.User;
+import com.example.restblog.dataOriginal.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

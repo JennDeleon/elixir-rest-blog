@@ -1,4 +1,4 @@
-package com.example.restblog.web;
+package com.example.restblog.webOriginal;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

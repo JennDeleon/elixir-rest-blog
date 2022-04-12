@@ -1,7 +1,7 @@
-package com.example.restblog.web;
+package com.example.restblog.webOriginal;
 
-import com.example.restblog.data.User;
-import com.example.restblog.data.UserRepository;
+import com.example.restblog.dataOriginal.User;
+import com.example.restblog.dataOriginal.UserRepository;
 import com.example.restblog.errors.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PostAuthorize;
@@ -61,7 +61,7 @@ class UsersController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("!hasAuthority('USER') || (authentication.principal == @userRepository.findById(#id).orElse(new com.example.restblog.data.User()).email)")
+    @PreAuthorize("!hasAuthority('USER') || (authentication.principal == @userRepository.findById(#id).orElse(new com.example.restblog.dataOriginal.User()).email)")
     void update(@PathVariable Long id, @Valid @RequestBody User res) {
         User u = repository.findById(id).orElseThrow(() -> new EntityNotFoundException(User.class, "id", id.toString()));
         res.setPassword(u.getPassword());
