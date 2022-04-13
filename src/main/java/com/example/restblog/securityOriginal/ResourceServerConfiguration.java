@@ -1,4 +1,4 @@
-package com.example.restblog.security;
+package com.example.restblog.securityOriginal;
 
 import com.example.restblog.errors.CustomAccessDeniedHandler;
 import com.example.restblog.errors.CustomAuthenticationEntryPoint;

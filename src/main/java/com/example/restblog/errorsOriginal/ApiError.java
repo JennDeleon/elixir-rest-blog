@@ -1,4 +1,4 @@
-package com.example.restblog.errors;
+package com.example.restblog.errorsOriginal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
