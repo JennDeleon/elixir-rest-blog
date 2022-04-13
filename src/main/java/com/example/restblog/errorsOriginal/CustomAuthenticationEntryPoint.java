@@ -1,4 +1,4 @@
-package com.example.restblog.errors;
+package com.example.restblog.errorsOriginal;
 
 import com.example.restblog.errorsOriginal.ApiError;
 import com.fasterxml.jackson.databind.ObjectMapper;
