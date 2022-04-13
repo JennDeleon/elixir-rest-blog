@@ -1,4 +1,4 @@
-package com.example.restblog;
+package com.example.restblog.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
