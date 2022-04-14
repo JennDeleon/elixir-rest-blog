@@ -5,6 +5,11 @@ export default function init() {
     loadViewOnPageRequest();
     addListenerToNavLinks();
 }
+
+export default function init(){
+    loadViewOnPageRequest();
+    addListenerToNavLinks();
+}
 /**
  * When the DOM loads, build the view given the current endpoint.
  */
