@@ -1,120 +1,117 @@
 import createView from "../createView.js";
 
-var newMethod = "POST";
-var currentPostId = 1;
+const BASE_URI = 'http://localhost:8081/api/posts';
 
 export default function PostIndex(props) {
+    // language=HTML
     return `
-<div class="conatiner-fluid">
         <header>
-            <h1>Posts Page</h1>
+            <h1>My Blogs</h1>
         </header>
         <main>
-        
+            <h3>Holy cow this is working!</h3>
             <div id="posts-container">
-                    ${props.posts.map(post => {
-                    return `<div><h3>${post.title}</h3> 
-                    <p>${post.content}</p>
-        <span><a href="#" class ="edit-post-button"data-id="${post.id}">Edit</a></span>
-<span><a href="#" class="delete-post-button" data-id="${post.id}">Delete</a></span>
+                ${props.posts.map(post => {
+        return `<div>
+<h4 id="title-${post.id}">${post.title}</h4>
+<p id="content-${post.id}">${post.content}</p>
+<span><a href="#" class="edit-post-button" data-id="${post.id}">Edit</a></span>
+<span><a href="#" class="delete-post-button" data-id="${post.id}" style="color: red">Delete</a></span>
 </div>`;
-                    }).join('')}   
-            </div>  
-            <hr>
-            <div id="add-post-container">
-                <form id="add-post-form">
-                     <div class="mb-3">
-                         <label for="add-post-title" class="form-label" style="font-weight: bold">New Post Title</label>
-                         <input type="text" class="form-control" id="add-post-title" placeholder="Enter title">
-                     </div>
-                        
-                     <div class="mb-3">
-                         <label for="add-post-content" class="form-label" style="font-weight: bold">Enter Your Blog Post</label>
-                         <textarea class="form-control" id="add-post-content" rows="3" placeholder="Enter content"></textarea>
-                     </div>
-                     <div class="mb-8">
-                        <button class="btn btn-primary col-2" id="add-post-btn">Add Post</button>
-                        <button class="btn btn-primary col-2" id="clear-btn">Cancel</button>
-                    </div>
-                </form>
+    }).join('')}
             </div>
+            <hr>
+            <h3>Add a Post</h3>
+            <form id="add-post-form">
+                <div class="mb-3">
+                    <input disabled type="text" class="form-control" id="add-post-id" value="0">
+                </div>
+                <div class="mb-3">
+                    <label for="add-post-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="add-post-title" placeholder="Post title">
+                </div>
+                <label for="add-post-content" class="form-label">Content</label>
+                <textarea class="form-control" id="add-post-content" rows="3" placeholder="Post content"></textarea>
+                </div>
+                <br>
+                <button id="clear-post-button" type="submit" class="btn btn-primary mb-3"
+                        onclick="document.querySelector('#add-post-id').value = 0; document.querySelector('#add-post-title').value = ''; 
+                        document.querySelector('#add-post-content').value = '';"> Cancel </button>
+                <button id="add-post-button" type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
         </main>
-</div>
     `;
 }
 
-export function PostsEvent() {
-    createAddListener();
-    createEditListener();
-    createClearListener();
-    createDeleteListener();
+export function PostEvents() {
+    createAddPostListener();
+    createEditPostListeners();
+    createDeletePostListeners();
 }
 
-
-function createAddListener() {
-    $("#add-post-btn").click(function (e) {
-        if (newMethod == "POST") {
-            const myTitle = $("#add-post-title").val();
-            const myContent = $("#add-post-content").val();
-            const myPost = {};
-            myPost.title = myTitle;
-            myPost.content = myContent;
-            const myRequest = {};
-            myRequest.method = myMethod;
-            myRequest.headers = {'Content-Type': 'application/json'};
-            myRequest.body = JSON.stringify(myPost);
-        } else {
-            $("#title-" + currentPostId).text($("#add-post-title").val());
-            $("#content-" + currentPostId).text($("#add-post-content").val());
+function createAddPostListener() {
+    $("#add-post-button").click(function() {
+        const newPost = {
+            title: $("#add-post-title").val(),
+            content: $("#add-post-content").val()
         }
-        fetch("http://localhost:8081/api/posts", myRequest)
+        const id = $("#add-post-id").val();
+        const request = {};
+        let uriExtra = "";
+        if(id > 0) {
+            newPost.id = id;
+            request.method = "PUT";
+            uriExtra = `/${id}`;
+            console.log("Ready to update this post:");
+        } else {
+            newPost.id = 99999;
+            request.method = "POST";
+            console.log("Ready to add this post:");
+        }
+        request.headers = {
+            'Content-Type': 'application/json'
+        };
+        request.body = JSON.stringify(newPost);
+        fetch(`${BASE_URI}${uriExtra}`, request)
             .then(res => {
-                console.log(res.status);
-                createView("/posts")
+                console.log(`${request.method} SUCCESS: ${res.status}`);
             }).catch(error => {
-            console.log(error);
+            console.log(`${request.method} ERROR: ${error}`);
+        }).finally(() => {
             createView("/posts");
         });
     });
 }
 
-function createEditListener() {
-    $(".edit-link").click(function () {
-        newMethod = "PUT";
-        $("#add-post-btn").text("Update");
-        const postId = $(this).data("id");
-        const postTitle = $("#title-" + postId).text();
-        const postContent = $("#content-" + postId).text();
-        currentPostId = postId;
-        // console.log(postId);
-        $("#add-post-title").val(postTitle);
-        $("#add-post-content").val(postContent);
-    })
+function createEditPostListeners() {
+    $(".edit-post-button").click(function() {
+        const id = $(this).data("id");
+        const oldTitle = $(`#title-${id}`).html();
+        const oldContent = $(`#content-${id}`).text();
+        $("#add-post-id").val(id);
+        $("#add-post-title").val(oldTitle);
+        $("#add-post-content").val(oldContent);
+    });
 }
 
-function createDeleteListener() {
-    $(".delete-link").click(function () {
-        newMethod = "DELETE";
-        const postId = $(this).data("id");
-        const newRequest = {};
-        newRequest.method = newMethod;
-        newRequest.headers = {'Content-Type': 'application/json'};
-        fetch("http://localhost:8081/api/posts/" + postId, myRequest)
+function createDeletePostListeners() {
+    $(".delete-post-button").click(function() {
+        const id = $(this).data("id");
+        console.log("Ready to delete the post with id " + id);
+
+        const request = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        fetch(`${BASE_URI}/${id}`, request)
             .then(res => {
-                console.log(res.status);
-                createView("/posts")
+                console.log("DELETE SUCCESS: " + res.status);
             }).catch(error => {
-            console.log(error);
+            console.log("DELETE ERROR: " + error);
+        }).finally(() => {
             createView("/posts");
         });
-    })
-}
-
-function createClearListener() {
-    $("#clear-btn").click(function () {
-        newMethod = "POST";
-        $("#add-post-btn").text("Add Post");
-        $("#add-post-title").val("");
-        $("#add-post-content").val("");
-    })
+    });
 }

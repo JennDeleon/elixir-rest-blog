@@ -13,6 +13,5 @@ public class Post {
     private Long id;
     private String title;
     private String content;
-    private LocalDate createPost;
-
+//    private LocalDate createPost;
 }
