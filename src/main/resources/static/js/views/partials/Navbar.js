@@ -9,3 +9,6 @@ export default function Navbar(props) {
         </nav>
     `;
 }
+let styleEl = document.createElement('style');
+styleEl.innerHTML = 'nav{background-color:#75B9BE; margin: 0; padding: 3em;} a {padding: 1em; margin: 3em; color: #A4508B; font-size: larger; }';
+document.head.appendChild(styleEl);
