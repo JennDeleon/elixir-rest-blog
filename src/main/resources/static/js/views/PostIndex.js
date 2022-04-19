@@ -4,7 +4,7 @@ import createView from "../createView.js";
 const BASE_URI = 'http://localhost:8081/api/posts';
 
 let styleEl = document.createElement('style');
-styleEl.innerHTML = 'body{background-color:#d9f7f7; margin-left: 1em;}';
+styleEl.innerHTML = 'body{background-color:#d9f7f7; margin: 0 1em 1em 1em;}';
 document.head.appendChild(styleEl);
 
 export default function PostIndex(props) {

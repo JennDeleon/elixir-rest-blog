@@ -2,12 +2,12 @@ export default function Home(props) {
     console.log("The frontend did it. HER FAULT");
     return `
         <header>
-            <h1>Home Page</h1>
+            <h1>WELCOME TO MY BLOG</h1>
         </header>
         <main>
             <div>
                 <p>
-                    This is the home page text.
+                    No one will read this...except me! 
                 </p>    
             </div>
         </main>
