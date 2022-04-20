@@ -12,7 +12,6 @@ import java.util.List;
 
 public class PostController {
 
-
     @GetMapping
     private List<Post> getAll() {
         ArrayList<Post> posts = new ArrayList<>();
