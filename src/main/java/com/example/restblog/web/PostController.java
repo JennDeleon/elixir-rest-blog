@@ -1,6 +1,7 @@
 package com.example.restblog.web;
 
 import com.example.restblog.data.Post;
+import com.example.restblog.data.PostRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,6 +13,10 @@ import java.util.List;
 
 public class PostController {
 
+    private PostRepository postRepository;
+    public PostController(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
     @GetMapping
     private List<Post> getAll() {
         ArrayList<Post> posts = new ArrayList<>();
@@ -23,14 +28,15 @@ public class PostController {
     }
 
 //    GET /API/POSTS/5 <--- EXAMPLE FETCH THE BLOG POST WITH ID 5
-    @GetMapping("{postId}")
-    public Post getById(@PathVariable Long postId){
-        return new Post(postId, "Post " + postId, "Blah blah new blah Donec velit neque, auctor sit amet aliquam vel, ullamcorper");
-    }
+//    @GetMapping("{postId}")
+//    public Post getById(@PathVariable Long postId){
+////        return new Post("Post " + postId, "Blah blah new blah Donec velit neque, auctor sit amet aliquam vel, ullamcorper");
+//    }
 
     @PostMapping
     private void createPost(@RequestBody Post newPost){
-        System.out.println("Ready to add post: " + newPost);
+        Post postToAdd = new Post(newPost.getTitle(), newPost.getContent());
+        System.out.println("Post was created");
     }
 
     @PutMapping("{postid}")

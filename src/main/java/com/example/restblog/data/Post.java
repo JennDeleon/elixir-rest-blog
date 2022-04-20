@@ -7,12 +7,11 @@ import java.util.Collection;
 
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Entity
 @Table(name = "posts")
-
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +22,12 @@ public class Post {
     private String content;
 //    private User author;
 //    private Collection<Category> categories;
+
+    public Post() {
+    }
+
+    public Post(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
