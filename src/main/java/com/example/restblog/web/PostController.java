@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping(value = "/api/posts", headers = "Accept=application/json")
 @CrossOrigin
 
+
 public class PostController {
 
     private PostRepository postRepository;
@@ -36,6 +37,7 @@ public class PostController {
     @PostMapping
     private void createPost(@RequestBody Post newPost){
         Post postToAdd = new Post(newPost.getTitle(), newPost.getContent());
+        postRepository.save(postToAdd);
         System.out.println("Post was created");
     }
 
