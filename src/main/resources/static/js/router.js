@@ -8,8 +8,7 @@ import LoginEvent from "./auth.js";
 import Register from "./views/Register.js"
 import {RegisterEvent} from "./views/Register.js";
 import {PostEvents} from "./views/PostIndex.js";
-
-import UserIndex from ".//views/User.js;" ;
+import UserIndex from "./views/User.js"
 import {UserEvents} from "./views/User.js";
 
 /**
@@ -42,10 +41,10 @@ export default function router(URI) {
         '/users': {
             returnView: UserIndex,
             state: {
-                users: "/api/users/username?userName= John Doe"
+                users: "/api/users/5"
             },
-            uri:"/users",
-            title: 'user Info',
+            uri: "/users",
+            title: 'User Info',
             viewEvent: UserEvents
         },
         '/posts': {
@@ -55,6 +54,7 @@ export default function router(URI) {
             },
             uri: '/posts',
             title: 'All Posts',
+            viewEvent: PostEvents
         },
         '/about': {
             returnView: About,
@@ -78,4 +78,3 @@ export default function router(URI) {
 
     return routes[URI];
 }
-

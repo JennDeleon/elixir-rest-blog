@@ -25,7 +25,7 @@ public class PostController {
         posts.add(new Post (2L, "Post 12 ", "Blah Blah Vestibulum ante ipsum primis in faucibus orci luctus"));
         posts.add(new Post (3L, "Post 13 ", "Blah Blah Blah Donec velit neque, auctor sit amet aliquam vel, ullamcorper"));
 
-        return posts;
+        return postRepository.findAll();
     }
 
 //    GET /API/POSTS/5 <--- EXAMPLE FETCH THE BLOG POST WITH ID 5
@@ -43,11 +43,16 @@ public class PostController {
 
     @PutMapping("{postid}")
     private void updatePost(@PathVariable Long postId, @RequestBody Post newPost){
+        Post postToUpdate = postRepository.getById(postId);
+        postToUpdate.setContent(newPost.getContent());
+        postToUpdate.setTitle(newPost.getTitle());
+        postRepository.save(postToUpdate);
         System.out.printf("Backend wants to update post id %\n", postId);
     }
 
     @DeleteMapping({"postId"})
     private void deletePost(@PathVariable Long postId){
+//        Post postToDelete = postRepository.getById()
         System.out.printf("Backend wants to delete post id %d\n", postId);
     }
 }

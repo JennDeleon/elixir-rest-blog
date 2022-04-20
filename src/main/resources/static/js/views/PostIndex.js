@@ -6,7 +6,11 @@ const BASE_URI = 'http://localhost:8081/api/posts';
 let styleEl = document.createElement('style');
 styleEl.innerHTML = 'body{background-color:#d9f7f7; margin: 0 1em 1em 1em;}';
 document.head.appendChild(styleEl);
+// <span style="float:right" id="author-${post.id}">Author: ${post.author.username}</span> move back to 24 later
 
+// ${post.categories.map(category => {
+//                 return `<span class="border border-primary rounded">${category.name}</span>`
+//                     }).join('')} 30 -32
 export default function PostIndex(props) {
     // language=HTML
     return `
@@ -21,15 +25,13 @@ export default function PostIndex(props) {
 <div class="card">
     <h4 class="card-header">
         <span id="title-${post.id}">${post.title}</span>
-        <span style="float:right" id="author-${post.id}">Author: ${post.author.username}</span>
+
     </h4>
     <div class="card-body">
         <p id="content-${post.id}" class="card-text">${post.content}</p>
     </div>
     <div class="card-footer text-muted">            
-        ${post.categories.map(category => {
-                        return `<span class="border border-primary rounded">${category.name}</span>`
-                    }).join('')}
+
         <span><a href="#" class="edit-post-button" data-id="${post.id}">Edit</a></span>
         <span><a href="#" class="delete-post-button" data-id="${post.id}">Delete</a></span>
     </div>
