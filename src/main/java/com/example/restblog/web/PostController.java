@@ -1,58 +1,60 @@
-package com.example.restblog.web;
-
-import com.example.restblog.data.Post;
-import com.example.restblog.data.PostRepository;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-@RestController
-@RequestMapping(value = "/api/posts", headers = "Accept=application/json")
-@CrossOrigin
-
-
-public class PostController {
-
-    private PostRepository postRepository;
-    public PostController(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
-    @GetMapping
-    private List<Post> getAll() {
-        ArrayList<Post> posts = new ArrayList<>();
-        posts.add(new Post (1L, "Post 11 ", "Blah Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim."));
-        posts.add(new Post (2L, "Post 12 ", "Blah Blah Vestibulum ante ipsum primis in faucibus orci luctus"));
-        posts.add(new Post (3L, "Post 13 ", "Blah Blah Blah Donec velit neque, auctor sit amet aliquam vel, ullamcorper"));
-
-        return postRepository.findAll();
-    }
-
-//    GET /API/POSTS/5 <--- EXAMPLE FETCH THE BLOG POST WITH ID 5
-//    @GetMapping("{postId}")
-//    public Post getById(@PathVariable Long postId){
-////        return new Post("Post " + postId, "Blah blah new blah Donec velit neque, auctor sit amet aliquam vel, ullamcorper");
+//package com.example.restblog.web;
+//
+//import com.example.restblog.data.*;
+//import com.example.restblog.services.EmailService;
+//import lombok.AllArgsConstructor;
+//import org.springframework.beans.BeanUtils;
+//import org.springframework.beans.BeanWrapper;
+//import org.springframework.beans.BeanWrapperImpl;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.*;
+//
+//@CrossOrigin
+//@RestController
+//@AllArgsConstructor
+//@RequestMapping(value = "/api/posts", headers = "Accept=application/json")
+//public class PostsController {
+//    private final PostRepository postRepository;
+//    private final UsersRepository userRepository;
+//    private final CategoryRepository categoriesRepository;
+//    private final EmailService emailService;
+//
+//    @GetMapping
+//    private List<Post> getAll() {
+//        return postRepository.findAll();
 //    }
-
-    @PostMapping
-    private void createPost(@RequestBody Post newPost){
-        Post postToAdd = new Post(newPost.getTitle(), newPost.getContent());
-        postRepository.save(postToAdd);
-        System.out.println("Post was created");
-    }
-
-    @PutMapping("{postid}")
-    private void updatePost(@PathVariable Long postId, @RequestBody Post newPost){
-        Post postToUpdate = postRepository.getById(postId);
-        postToUpdate.setContent(newPost.getContent());
-        postToUpdate.setTitle(newPost.getTitle());
-        postRepository.save(postToUpdate);
-        System.out.printf("Backend wants to update post id %\n", postId);
-    }
-
-    @DeleteMapping({"postId"})
-    private void deletePost(@PathVariable Long postId){
-//        Post postToDelete = postRepository.getById()
-        System.out.printf("Backend wants to delete post id %d\n", postId);
-    }
-}
+//
+//    @GetMapping("{postId}")
+//    private Optional<Post> getById(@PathVariable Long postId) {
+//        return postRepository.findById(postId);
+//    }
+//
+//    @PostMapping
+//    private void createPost(@RequestBody Post newPost) {
+//        newPost.setAuthor(userRepository.getById(1L));
+//        newPost.setCategories(Arrays.asList(categoriesRepository.getById(1L),
+//                categoriesRepository.getById(2L),
+//                categoriesRepository.getById(3L)));
+//        postRepository.save(newPost);
+//
+//        emailService.prepareAndSend(newPost, "New post!", "Hi there. You made a new post!");
+//    }
+//
+//    @PutMapping("{postId}")
+//    private void updatePost(@PathVariable Long postId, @RequestBody Post newPost) {
+//        System.out.printf("Backend wants to update post id %d with %s\n", postId, newPost);
+//        Post originalPost = postRepository.getById(postId);
+//        BeanUtils.copyProperties(newPost, originalPost, getNullPropertyNames(newPost));
+//        postRepository.save(originalPost);
+//    }
+//
+//    @DeleteMapping("{postId}")
+//    private void deletePost(@PathVariable Long postId) {
+//        System.out.printf("Backend wants to delete post id %d\n", postId);
+//        postRepository.deleteById(postId);
+//    }
+//
+//
+//
+//}
