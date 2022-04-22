@@ -2,18 +2,18 @@ package com.example.restblog.web;
 
 import com.example.restblog.data.*;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
 @RestController
+
 @RequestMapping(value = "/api/users", headers = "Accept=application/json")
-public class UserController {
+public class UsersController {
+
     private final UsersRepository userRepository;
 
-    public UserController(UsersRepository userRepository) {
+    public UsersController(UsersRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -39,22 +39,25 @@ public class UserController {
 
     @PostMapping
     private void createUser(@RequestBody User newUser) {
-        System.out.println("Backend wants to create: " + newUser);
+        System.out.println("Create: " + newUser);
     }
 
     @PutMapping("{userId}")
     private void updateUser(@PathVariable Long userId, @RequestBody User updatedUser) {
-        System.out.printf("Backend wants to update user id %d with %s\n", userId, updatedUser);
+        System.out.printf("Update user id %d with %s\n", userId, updatedUser);
     }
 
     @PutMapping("{userId}/updatePassword")
     private void updateUserPassword(@PathVariable Long userId, @RequestParam(required = false) String oldPassword, @RequestParam String newPassword) {
-        System.out.printf("Backend wants to update user password for id %d with old pw %s new pw %s\n", userId, oldPassword, newPassword);
+        System.out.printf("Update user password for id %d with old pw %s new pw %s\n", userId, oldPassword, newPassword);
     }
 
     @DeleteMapping("{userId}")
     private void deleteUser(@PathVariable Long userId) {
-        System.out.printf("Backend wants to delete user id %d\n", userId);
+        System.out.printf("Delete user id %d\n", userId);
     }
+
+
+
 
 }
