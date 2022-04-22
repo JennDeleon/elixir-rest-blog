@@ -1,12 +1,13 @@
 package com.example.restblog.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
