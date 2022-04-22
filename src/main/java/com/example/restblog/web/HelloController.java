@@ -11,7 +11,7 @@ public class HelloController {
     @GetMapping("/hello")
     @ResponseBody
     public String hello() {
-        return "Hello from Spring!";  /*The body of the response */
+        return "ITS WORKING!!!";
     }
 
     @GetMapping("/hello/{name}")
