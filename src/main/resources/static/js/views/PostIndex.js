@@ -18,23 +18,22 @@ export default function PostIndex(props) {
             <h1>My Blogs</h1>
         </header>
         <main>
-            <h3>Holy cow this is working!</h3>
+            <h3>This is my Blog</h3>
+            <br>
             <div id="posts-container">
                 ${props.posts.map(post => {
                     return `
-<div class="card">
-    <h4 class="card-header">
+<div class="card" style="margin-bottom: 2em;">
+    <h4 class="card-header" style="background-color: #A188A6">
         <span id="title-${post.id}">${post.title}</span>
-
     </h4>
     <div class="card-body">
         <p id="content-${post.id}" class="card-text">${post.content}</p>
     </div>
-    <div class="card-footer text-muted">            
-
+    <div class="card-footer text-muted" style="background-color: #A188A6">            
         <span><a href="#" class="edit-post-button" data-id="${post.id}">Edit</a></span>
         <span><a href="#" class="delete-post-button" data-id="${post.id}">Delete</a></span>
-    </div>
+    </div>  
 </div>`;
     }).join('')}
             </div>
