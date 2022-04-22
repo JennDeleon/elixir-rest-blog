@@ -1,21 +1,22 @@
 package com.example.restblog.web;
 
 import com.example.restblog.data.*;
+import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
 @RestController
-
+@AllArgsConstructor
 @RequestMapping(value = "/api/users", headers = "Accept=application/json")
 public class UsersController {
 
     private final UsersRepository userRepository;
 
-    public UsersController(UsersRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final PasswordEncoder passwordEncoder;
+
 
     @GetMapping
     private List<User> getAll() {
@@ -40,6 +41,11 @@ public class UsersController {
     @PostMapping
     private void createUser(@RequestBody User newUser) {
         System.out.println("Create: " + newUser);
+        newUser.setRole(User.Role.USER);
+        String encyptedPassword = newUser.getPassword();
+        encyptedPassword = passwordEncoder.encode(encyptedPassword);
+        newUser.setPassword(encyptedPassword);
+        userRepository.save(newUser);
     }
 
     @PutMapping("{userId}")

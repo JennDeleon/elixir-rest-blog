@@ -1,7 +1,6 @@
 package com.example.restblog.errors;
 
-import com.example.restblog.errors.ApiError;
-import com.example.restblog.errors.EntityNotFoundException;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
