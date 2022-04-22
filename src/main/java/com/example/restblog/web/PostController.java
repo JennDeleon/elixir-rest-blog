@@ -43,7 +43,7 @@ public class PostController {
 
     @PutMapping("{postId}")
     private void updatePost(@PathVariable Long postId, @RequestBody Post newPost) {
-        System.out.printf("Backend wants to update post id %d with %s\n", postId, newPost);
+        System.out.printf("update post id %d with %s\n", postId, newPost);
         Post originalPost = postRepository.getById(postId);
         BeanUtils.copyProperties(newPost, originalPost, getNullPropertyNames(newPost));
         postRepository.save(originalPost);
