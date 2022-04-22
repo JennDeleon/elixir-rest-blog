@@ -1,7 +1,7 @@
 import createView from "../createView.js";
 
 
-const URL = 'http://localhost:8081/posts';
+const URL = 'http://localhost:8081/api/posts';
 
 let styleEl = document.createElement('style');
 styleEl.innerHTML = 'body{background-color:#d9f7f7; margin: 0 1em 1em 1em;}';

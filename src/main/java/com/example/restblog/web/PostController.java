@@ -21,6 +21,7 @@ public class PostController {
     private final CategoriesRepository categoriesRepository;
     private final EmailService emailService;
 
+
     @GetMapping
     private List<Post> getAll() {
         return postRepository.findAll();
@@ -46,7 +47,7 @@ public class PostController {
         System.out.printf("update post id %d with %s\n", postId, newPost);
         Post originalPost = postRepository.getById(postId);
         BeanUtils.copyProperties(newPost, originalPost, getNullPropertyNames(newPost));
-        postRepository.save(originalPost);
+        postRepository.save(newPost);
     }
 
     @DeleteMapping("{postId}")
@@ -67,5 +68,6 @@ public class PostController {
         String[] result = new String[emptyNames.size()];
         return emptyNames.toArray(result);
     }
+
 
 }
