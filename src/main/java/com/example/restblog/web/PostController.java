@@ -14,10 +14,11 @@ import java.util.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping(value = "/api/posts", headers = "Accept=application/json")
+
 public class PostController {
     private final PostRepository postRepository;
     private final UsersRepository userRepository;
-    private final CategoryRepository categoriesRepository;
+    private final CategoriesRepository categoriesRepository;
     private final EmailService emailService;
 
     @GetMapping
@@ -44,13 +45,27 @@ public class PostController {
     private void updatePost(@PathVariable Long postId, @RequestBody Post newPost) {
         System.out.printf("Backend wants to update post id %d with %s\n", postId, newPost);
         Post originalPost = postRepository.getById(postId);
+        BeanUtils.copyProperties(newPost, originalPost, getNullPropertyNames(newPost));
         postRepository.save(originalPost);
     }
 
     @DeleteMapping("{postId}")
     private void deletePost(@PathVariable Long postId) {
-        System.out.printf("Backend wants to delete post id %d\n", postId);
+        System.out.printf("Delete post id %d\n", postId);
         postRepository.deleteById(postId);
+    }
+    private static String[] getNullPropertyNames (Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+
+        Set<String> emptyNames = new HashSet<String>();
+        for(java.beans.PropertyDescriptor pd : pds) {
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) emptyNames.add(pd.getName());
+        }
+
+        String[] result = new String[emptyNames.size()];
+        return emptyNames.toArray(result);
     }
 
 }

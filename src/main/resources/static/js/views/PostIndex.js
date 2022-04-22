@@ -1,7 +1,7 @@
 import createView from "../createView.js";
 
 
-const BASE_URI = 'http://localhost:8081/api/posts';
+const URL = 'http://localhost:8081/posts';
 
 let styleEl = document.createElement('style');
 styleEl.innerHTML = 'body{background-color:#d9f7f7; margin: 0 1em 1em 1em;}';
@@ -90,7 +90,7 @@ function createAddPostListener() {
             'Content-Type': 'application/json'
         };
         request.body = JSON.stringify(newPost);
-        fetch(`${BASE_URI}${uriExtra}`, request)
+        fetch(`${URL}${uriExtra}`, request)
             .then(res => {
                 console.log(`${request.method} SUCCESS: ${res.status}`);
             }).catch(error => {
@@ -123,7 +123,7 @@ function createDeletePostListeners() {
                 'Content-Type': 'application/json',
             }
         };
-        fetch(`${BASE_URI}/${id}`, request)
+        fetch(`${URL}/${id}`, request)
             .then(res => {
                 console.log("DELETE SUCCESS: " + res.status);
             }).catch(error => {
