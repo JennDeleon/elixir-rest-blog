@@ -4,7 +4,7 @@ import createView from "../createView.js";
 const URL = 'http://localhost:8081/api/posts';
 
 let styleEl = document.createElement('style');
-styleEl.innerHTML = 'body{background-color:#d9f7f7; margin: 0 1em 1em 1em;}';
+styleEl.innerHTML = 'body{background-color:#ccd6df; margin: 0 1em 1em 1em;}';
 document.head.appendChild(styleEl);
 // <span style="float:right" id="author-${post.id}">Author: ${post.author.username}</span> move back to 24 later
 
@@ -12,7 +12,6 @@ document.head.appendChild(styleEl);
 //                 return `<span class="border border-primary rounded">${category.name}</span>`
 //                     }).join('')} 30 -32
 export default function PostIndex(props) {
-    // language=HTML
     return `
         <header>
             <h1>My Blogs</h1>
@@ -24,13 +23,13 @@ export default function PostIndex(props) {
                 ${props.posts.map(post => {
                     return `
 <div class="card" style="margin-bottom: 2em;">
-    <h4 class="card-header" style="background-color: #A188A6">
+    <h4 class="card-header" style="background-color: #bdade8">
         <span id="title-${post.id}">${post.title}</span>
     </h4>
-    <div class="card-body">
+    <div class="card-body" style="background-color: #bfeff0">
         <p id="content-${post.id}" class="card-text">${post.content}</p>
     </div>
-    <div class="card-footer text-muted" style="background-color: #A188A6">            
+    <div class="card-footer text-muted" style="background-color: #bdade8">            
         <span><a href="#" class="edit-post-button" data-id="${post.id}">Edit</a></span>
         <span><a href="#" class="delete-post-button" data-id="${post.id}">Delete</a></span>
     </div>  
