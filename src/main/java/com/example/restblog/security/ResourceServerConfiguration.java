@@ -1,5 +1,7 @@
 package com.example.restblog.security;
 
+import com.example.restblog.errors.CustomAccessDeniedHandler;
+import com.example.restblog.errors.CustomAuthenticationEntryPoint;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -24,25 +26,27 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        // TODO: Flesh out remaining secured endpoints
         http
-                .cors()
-            .and()
-                .csrf()
-                    .disable()
                 .formLogin()
-                    .disable()
+                .disable()
                 .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
                 .authorizeRequests()
-                .antMatchers("/**", "/api/posts", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-            .and()
-                .authorizeRequests()
-                    .antMatchers("/api/users/**").hasAnyAuthority("ADMIN", "USER")
-                    .antMatchers("/api/**").authenticated()
+                .antMatchers("/api/users")
+                .hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/api/posts")
+                .hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/swagger-ui/**", "/v3/api-docs/**")
+                .permitAll()
+                .antMatchers("/api/users/create")
+                .permitAll()
+                .antMatchers("/**")
+                .permitAll()
                 .anyRequest().authenticated()
-            .and()
-                .exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint).accessDeniedHandler(new CustomAccessDeniedHandler());    }
-
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(customAuthenticationEntryPoint)
+                .accessDeniedHandler(new CustomAccessDeniedHandler());
+    }
 }
