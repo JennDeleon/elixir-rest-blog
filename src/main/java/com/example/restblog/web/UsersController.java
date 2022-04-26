@@ -42,9 +42,9 @@ public class UsersController {
     private void createUser(@RequestBody User newUser) {
         System.out.println("Create: " + newUser);
         newUser.setRole(User.Role.USER);
-        String encyptedPassword = newUser.getPassword();
-        encyptedPassword = passwordEncoder.encode(encyptedPassword);
-        newUser.setPassword(encyptedPassword);
+        String userPassword = newUser.getPassword();
+        userPassword = passwordEncoder.encode(userPassword); //creates encryption for users plain password
+        newUser.setPassword(userPassword);
         userRepository.save(newUser);
     }
 
@@ -62,8 +62,5 @@ public class UsersController {
     private void deleteUser(@PathVariable Long userId) {
         System.out.printf("Delete user id %d\n", userId);
     }
-
-
-
 
 }

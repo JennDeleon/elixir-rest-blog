@@ -24,11 +24,10 @@ export default function createView(URI) {
     render(null, router('/loading'));
 
     let request = {
-        headers: getHeaders()
+        headers: getHeaders() // this is using the the getHeaders in auth.js
     }
     fetchData(route.state, request).then((props) => {
         // Restore the title so that history entries are not all 'Loading...'
-        // I tried using route.uri here instead, but it seems there's an off-by-one bug (https://stackoverflow.com/a/38830794)
         document.title = currentTitle;
         app.innerHTML = ``
         // Add the current page to the history stack

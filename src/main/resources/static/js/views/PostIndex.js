@@ -1,5 +1,5 @@
 import createView from "../createView.js";
-
+import {getHeaders} from "../auth.js";
 
 const URL = 'http://localhost:8081/api/posts';
 
@@ -26,7 +26,7 @@ export default function PostIndex(props) {
     <h4 class="card-header" style="background-color: #bdade8">
         <span id="title-${post.id}">${post.title}</span>
     </h4>
-    <div class="card-body" style="background-color: #bfeff0">
+    <div class="card-body">
         <p id="content-${post.id}" class="card-text">${post.content}</p>
     </div>
     <div class="card-footer text-muted" style="background-color: #bdade8">            
