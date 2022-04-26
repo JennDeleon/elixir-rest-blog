@@ -1,12 +1,12 @@
 import createView from "../createView.js";
 import {getHeaders} from "../auth.js";
 
+
 const URL = 'http://localhost:8081/api/posts';
 
 let styleEl = document.createElement('style');
-styleEl.innerHTML = 'body{background-color:#ccd6df; margin: 0 1em 1em 1em;}';
+styleEl.innerHTML = 'body{background-color: #171717; margin: 0 1em 1em 1em;}';
 document.head.appendChild(styleEl);
-// <span style="float:right" id="author-${post.id}">Author: ${post.author.username}</span> move back to 24 later
 
 // ${post.categories.map(category => {
 //                 return `<span class="border border-primary rounded">${category.name}</span>`
@@ -50,6 +50,7 @@ export default function PostIndex(props) {
                 <textarea class="form-control" id="add-post-content" rows="3" placeholder="Post content"></textarea>
                 </div>
                 <br>
+                    <!--           MIGHT CHANGE THESE BUTTONS            -->
                 <button id="clear-post-button" type="submit" class="btn btn-primary mb-3"
                         onclick="document.querySelector('#add-post-id').value = 0; document.querySelector('#add-post-title').value = ''; 
                         document.querySelector('#add-post-content').value = '';"> Cancel </button>
@@ -75,12 +76,12 @@ function createAddPostListener() {
         const request = {};
         let uriExtra = "";
         if(id > 0) {
-            newPost.id = id;
+            // newPost.id = id;
             request.method = "PUT";
             uriExtra = `/${id}`;
             console.log("Ready to update this post:");
         } else {
-            newPost.id = 99999;
+            // newPost.id = 99999;
             request.method = "POST";
             console.log("Ready to add this post:");
         }

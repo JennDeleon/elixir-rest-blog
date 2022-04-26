@@ -12,5 +12,5 @@ export default function Navbar(props) {
     `;
 }
 let styleEl = document.createElement('style');
-styleEl.innerHTML = 'nav{background-color:#bdade8; margin: 0; padding: 2em;} a {padding: 1em; margin: 3em; color: #C96480; font-size: large; text-shadow: 1px 1px grey; white-space: nowrap}';
+styleEl.innerHTML = 'body {color: #3da153} nav{background-color:#bdade8; margin: 0; padding: 2em;} a {color: #6b21a3; font-size: large; text-shadow: 1px 1px grey;}';
 document.head.appendChild(styleEl);

@@ -27,10 +27,8 @@ export default function createView(URI) {
         headers: getHeaders() // this is using the the getHeaders in auth.js
     }
     fetchData(route.state, request).then((props) => {
-        // Restore the title so that history entries are not all 'Loading...'
         document.title = currentTitle;
         app.innerHTML = ``
-        // Add the current page to the history stack
         history.pushState({...props, lastUri: route.uri }, null, route.uri)
         render(props, route);
     });
