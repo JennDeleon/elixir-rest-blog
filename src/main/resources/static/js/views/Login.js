@@ -1,6 +1,6 @@
 export default function Login(props) {
     return `<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Log In</title>

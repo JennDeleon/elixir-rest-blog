@@ -4,7 +4,7 @@ export default function Home(props) {
 <link rel="stylesheet" href="../../home.css"><title></title>
 </head>
         <header>
-            <h1>WELCOME TO MY BLOG. <br><p style="color: red; font-style: italic;"> IF YOU ARE A NEW USER:</p><br> TO LOGIN <br> YOU <b>MUST</b> ANSWER THE RIDDLE</h1>
+            <h1>WELCOME TO MY BLOG. <br><p style="color: red; font-style: italic;"> IF WISH TO CONTINUE AS A GUEST:</p><br> YOU <b>MUST</b> ANSWER THE RIDDLE</h1>
         </header>
         <main class="riddle">
            <br>

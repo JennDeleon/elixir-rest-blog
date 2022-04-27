@@ -8,9 +8,14 @@ export default function UserIndex(props) {
 <link rel="stylesheet" href="users.css"><title></title>
 </head>
         <header>
-            <h1>USER INFORMATION PAGE</h1>
+            <h1>User Inforamtion</h1>
         </header>
         <main>
+            <div>
+             <p>Profile pic</p>
+             <img class="img-circle " src="https://randomuser.me/api/portraits/women/10.jpg" alt="Random user">
+            </div>
+            <hr>
             <form id="register-form">
                 <label for="username">Username</label>
                 <input disabled id="username" name="username" value="${props.users.username}" type="text"/><br>
@@ -21,10 +26,6 @@ export default function UserIndex(props) {
                 <button id="change-password-button" type="button">Change Password</button>
             </form>
             <hr>
-            <div>
-                  <img class="img-circle " src="https://randomuser.me/api/portraits/women/10.jpg" alt="Random user">
-                  <p>Profile pic</p>
-            </div>
             ${props.users.posts.map(post => {
         return `
 <div class="card">

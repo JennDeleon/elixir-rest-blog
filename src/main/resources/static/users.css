@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 .img-circle {
     border-radius: 100%;
     border: 4px solid;
+
+}
+h1{
+    font-family: 'Lobster', cursive;
+
 }
 p{
-    margin: 1em;
-    padding: 2em;
+    margin-left: .5em;
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    font-size: xx-large;
 }
