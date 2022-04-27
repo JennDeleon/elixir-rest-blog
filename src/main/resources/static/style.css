@@ -1,30 +1,203 @@
 
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+.riddle {
 
-p{
+    word-wrap: break-word;
+    text-align: center;
+    overflow-wrap: break-word;
+
+}
+h1 {
+    text-align: center;
+}
+.p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10{
+    max-width: 50em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center;
+    text-wrap: inherit;
+    font-size: larger;
+    display: flex;
     font-family: 'VT323', monospace;
+}
 
+.p1{
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em #3da153; /* The typwriter cursor */
+    border-right: .15em #3da153; /* The typewriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 3s steps(40, end),
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+        /* The typing effect */
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange; }
+    }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: #3da153 }
+            50% { border-color: #3da153; }
+        }
+
+.p2{
+    animation-delay: 5s !important;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+    /* The typing effect */
+    @keyframes typing {
+        from { width: 0}
+        to { width: 100% }
+    }
+
+
+.p3{
+    animation-delay: 10s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
             blink-caret .75s step-end infinite;
 }
 
 /* The typing effect */
 @keyframes typing {
-    from { width: 0 }
+    from { width: 0}
     to { width: 100% }
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #3da153; }
-
+.p4{
+    animation-delay: 14s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
 }
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0}
+    to { width: 100% }
+}
+.p5{
+    animation-delay: 18s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0}
+    to { width: 100% }
+}
+.p6{
+    animation-delay: 22s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0}
+    to { width: 100% }
+}
+.p7{
+    animation-delay: 25s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0}
+    to { width: 100% }
+}
+.p8{
+    animation-delay: 29s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+.p9{
+    animation-delay: 32s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0}
+    to { width: 100% }
+}
+.p10{
+    animation-delay: 35s !important;
+    overflow: hidden !important; /* Ensures the content is not revealed until the animation */
+    border-right: .15em #3da153; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; !* Gives that scrolling effect as the typing happens *!*/
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0}
+    to { width: 100% }
+}
+
+
+
+
+
 
