@@ -1,11 +1,14 @@
 package com.example.restblog.web;
 
+import com.example.restblog.data.PostRepository;
 import com.example.restblog.data.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+
 
 @CrossOrigin
 @RestController
@@ -31,6 +34,12 @@ public class UsersController {
     @GetMapping("username")
     private User getByUsername(@RequestParam String userName) {
         return userRepository.findByUsername(userName);
+    }
+
+    @GetMapping("me")
+    private User getMyInfo(OAuth2Authentication auth) {
+        String email = auth.getName();
+        return userRepository.findByEmail(email);
     }
 
     @GetMapping("email")

@@ -3,10 +3,9 @@ import createView from "../createView.js";
 const URL = 'http://localhost:8081/api/users';
 
 export default function UserIndex(props) {
-    console.log(props);
     return `
         <header>
-            <h1>BLAH BLAH BLAH</h1>
+            <h1>USER INFORMATION PAGE</h1>
         </header>
         <main>
             <form id="register-form">
@@ -19,7 +18,6 @@ export default function UserIndex(props) {
                 <button id="change-password-button" type="button">Change Password</button>
             </form>
             <hr>
-            <h5>My Posts</h5>
             ${props.users.posts.map(post => {
         return `
 <div class="card">
