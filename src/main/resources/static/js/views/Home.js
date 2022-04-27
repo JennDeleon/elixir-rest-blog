@@ -1,10 +1,10 @@
 export default function Home(props) {
     return `
 <head>    
-<link rel="stylesheet" href="../../style.css"><title></title>
+<link rel="stylesheet" href="../../home.css"><title></title>
 </head>
         <header>
-            <h1>WELCOME TO MY BLOG. <br> TO LOGIN, YOU MUST ANSWER THE RIDDLE</h1>
+            <h1>WELCOME TO MY BLOG. <br><p style="color: red; font-style: italic;"> IF YOU ARE A NEW USER:</p><br> TO LOGIN <br> YOU <b>MUST</b> ANSWER THE RIDDLE</h1>
         </header>
         <main class="riddle">
            <br>

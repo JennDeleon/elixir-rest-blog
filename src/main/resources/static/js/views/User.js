@@ -4,6 +4,9 @@ const URL = 'http://localhost:8081/api/users';
 
 export default function UserIndex(props) {
     return `
+<head>    
+<link rel="stylesheet" href="users.css"><title></title>
+</head>
         <header>
             <h1>USER INFORMATION PAGE</h1>
         </header>
@@ -14,10 +17,14 @@ export default function UserIndex(props) {
                 <label for="email">Email</label>
                 <input disabled id="email" name="email" type="email" value="${props.users.email}"><br>
                 <label for="new-password">New Password</label>
-                <input id="new-password" name="new-password" type="password" value=" . . . wrong."/><br>
+                <input id="new-password" name="new-password" type="text" value=""/><br>
                 <button id="change-password-button" type="button">Change Password</button>
             </form>
             <hr>
+            <div>
+                  <img class="img-circle " src="https://randomuser.me/api/portraits/women/10.jpg" alt="Random user">
+                  <p>Profile pic</p>
+            </div>
             ${props.users.posts.map(post => {
         return `
 <div class="card">

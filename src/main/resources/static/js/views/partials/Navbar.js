@@ -1,5 +1,8 @@
 export default function Navbar(props) {
     return `
+<head>    
+<link rel="stylesheet" href="navbar.css"><title></title>
+</head>
         <nav>
             <a href="/" data-link>Home</a>
             <a href="/posts" data-link>Posts</a>
@@ -12,5 +15,5 @@ export default function Navbar(props) {
     `;
 }
 let styleEl = document.createElement('style');
-styleEl.innerHTML = 'body {color: #3da153} nav{background-color:#bdade8; margin: 0; padding: 2em;} a {color: #6b21a3; font-size: large; text-shadow: 1px 1px grey;}';
+styleEl.innerHTML = 'body {color: #3da153} nav{background-color:#bdade8; padding: 2em;};'
 document.head.appendChild(styleEl);

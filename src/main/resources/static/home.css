@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
+p {
+    text-align: center;
+    margin: 0;
+}
 .riddle {
     word-wrap: break-word;
     text-align: center !important;
@@ -194,7 +197,7 @@ h1 {
 }
 .p10{
     animation-delay: 34s !important;
-    color: #bdade8 !important;
+    color: red !important;
     overflow: hidden !important; /* Ensures the content is not revealed until the animation */
     border-right: .15em #3da153; /* The typewriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
