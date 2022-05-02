@@ -45,24 +45,22 @@ export default function Home(props) {
                </div>
                
                <!-- GUEST HAS LIMITED ACCESS, PASSWORD DOES NOT NEED TO BE SECURE-->
-               <script>
-                $(document).submit(function guestRiddle(event) {
-                    let answer=document.getElementById("input-field").value;
-                    if(answer==="different")
-                    document.location.href="http://localhost:8081/about";
-                    else{
-                        alert("TRY AGAIN")
+                <!--  THE BELOW FUNCTION IS NOT RUNNING, NEED TO FIGURE OUT WHY-->
+                <script>
+                    function guessRiddle(e) {
+                        let answer=document.getElementById("input-field").value;
+                        if(answer==="different"){
+                            document.location.href="http://localhost:8081/about";
+                        }
+                        else{
+                            alert("TRY AGAIN")
+                        }
                     }
-                }
-            </script>
-               
+                </script>
+                <!--   CALLING GUESS RIDDLE FUNCTION TO EVENT HANDLER ON BUTTON     -->
                  <form action="#">
-<!--                    <fieldset class="width-20">-->
-<!--                      <div class="form-group">-->
                         <input type="password" id="input-field" name="password" class="form-control">
-<!--                      </div>-->
-                      <button onclick="guestRiddle()" class="btn btn-block">Answer</button>
-<!--                    </fieldset>-->
+                      <button onclick="guessRiddle()" class="btn btn-block">Answer</button>
                  </form>
         </main>
         
