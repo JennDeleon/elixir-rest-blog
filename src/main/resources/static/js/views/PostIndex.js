@@ -20,7 +20,7 @@ export default function PostIndex(props) {
             <h3>This is my Blog</h3>
             <br>
             <div id="posts-container">
-                ${props.posts.map(post => {
+                ${props.posts.map(post => { 
                     return `
 <div class="card" style="margin-bottom: 2em;">
     <h4 class="card-header" style="background-color: #bdade8">

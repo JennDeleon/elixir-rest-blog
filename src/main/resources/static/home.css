@@ -26,13 +26,13 @@ h1 {
 
 .riddle .p1{
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    color: #298aeb;
+    color: #3da153;
     border-right: .15em #3da153; /* The typewriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards,
+            typing 3s steps(40, end)forwards,
             blink-caret .75s step-end infinite;
 }
 
@@ -49,7 +49,7 @@ h1 {
         }
 
 .riddle .p2{
-    color: #298aeb !important;
+    color: #3da153 !important;
     font-size: larger;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /*border-right: .15em #3da153; /* The typewriter cursor */
@@ -58,9 +58,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
             /*blink-caret .75s step-end infinite;*/
-    animation-delay: 5s !important;
+    animation-delay: 3s !important;
 }
 
 /* The typing effect */
@@ -69,7 +69,7 @@ h1 {
     to { width: 100%}
 }
 .riddle .p3{
-    color: #298aeb !important;
+    color: #3da153 !important;
     font-size: larger;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /*border-right: .15em #3da153; /* The typewriter cursor */
@@ -78,9 +78,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 10s !important;
+    animation-delay: 5s !important;
 }
 
 @keyframes typing {
@@ -97,9 +97,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 14s !important;
+    animation-delay: 7s !important;
 }
 
 /* The typing effect */
@@ -118,9 +118,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 17s !important;
+    animation-delay: 9s !important;
 }
 
 
@@ -140,9 +140,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 20s !important;
+    animation-delay: 11s !important;
 }
 
 
@@ -162,9 +162,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 23s !important;
+    animation-delay: 12s !important;
 }
 
 
@@ -183,9 +183,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 28s !important;
+    animation-delay: 14s !important;
 
 }
 .p9{
@@ -198,9 +198,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 30s !important;
+    animation-delay: 16s !important;
 }
 
 /* The typing effect */
@@ -218,9 +218,9 @@ h1 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation:
-            typing 5s steps(40, end)forwards;
+            typing 3s steps(40, end)forwards;
     /*blink-caret .75s step-end infinite;*/
-    animation-delay: 34s !important;
+    animation-delay: 18s !important;
 }
 
 /* The typing effect */
@@ -229,6 +229,9 @@ h1 {
     to { width: 100% }
 }
 
+.btn {
+    color: red !important;
+}
 
 
 

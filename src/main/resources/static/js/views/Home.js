@@ -43,6 +43,28 @@ export default function Home(props) {
                <div class="p10">
                     Question: What is his new password, and what was the old one?
                </div>
+               
+               <!-- GUEST HAS LIMITED ACCESS, PASSWORD DOES NOT NEED TO BE SECURE-->
+               <script>
+                $(document).submit(function guestRiddle(event) {
+                    let answer=document.getElementById("input-field").value;
+                    if(answer==="different")
+                    document.location.href="http://localhost:8081/about";
+                    else{
+                        alert("TRY AGAIN")
+                    }
+                }
+            </script>
+               
+                 <form action="#">
+<!--                    <fieldset class="width-20">-->
+<!--                      <div class="form-group">-->
+                        <input type="password" id="input-field" name="password" class="form-control">
+<!--                      </div>-->
+                      <button onclick="guestRiddle()" class="btn btn-block">Answer</button>
+<!--                    </fieldset>-->
+                 </form>
         </main>
+        
     `;
 }
