@@ -7,7 +7,7 @@
  * @returns {Promise<{}>}
  */
 export default function fetchData(state, request) {
-    const promises = []; //EMPTY LOST FOR PROMISES
+    const promises = []; //EMPTY ARRAY LIST FOR PROMISES
     //TODO: this needs to be moved to a prop file or environment variable
     const baseUri = "http://localhost:8081";
 
@@ -23,7 +23,7 @@ export default function fetchData(state, request) {
     }
     return Promise.all(promises).then(propsData => { //LOOKING AT ALL THE PROMISES
         const props = {};
-        Object.keys(state).forEach((key, index) => { // ITERATING THROUGH ALL THR KEYS
+        Object.keys(state).forEach((key, index) => { // ITERATING THROUGH ALL THE KEYS
             props[key] = propsData[index]; //THEN ADD THE PROMISE JSON TO SINGLE PROPS OBJECT
         });
         return props;
