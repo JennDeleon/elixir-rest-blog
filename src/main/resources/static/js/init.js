@@ -1,11 +1,13 @@
 import createView from './createView.js';
-
+// IMPORTING THE CREATEVIEW FUNCTION FROM THE CREATE VIEW FILE
 
 export default function init() {
     loadViewOnPageRequest();
     addListenerToNavLinks();
 }
-
+//EXPORT IN FRONT OF FUNCTION ALLOWS THE FUNCTION TO BE IMPORTED
+//THE ABOVE FUNCTION IS CALLING THE BELOW LOADVIEWONPAGEREQUEST & ADDLISTENERTONAVLINKS FUNCTIONS SO WE ONLY NEED ONE FUNCTION CALL
+// WHICH IS INITIALIZED WHEN THE PAGE IS CALLED
 /**
  * When the DOM loads, build the view given the current endpoint.
  */

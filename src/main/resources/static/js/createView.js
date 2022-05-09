@@ -7,9 +7,12 @@ import {getHeaders} from "./auth.js";
  * Finds the correct route for a given view, builds a loading view, fetches data and builds the final rendered view.
  * @param URI
  */
+
 export default function createView(URI) {
 
     let route = router(URI);
+    //DEFINING ROUTER VAR
+
 
     // Store the title because the loading screen render overwrites it.
     let currentTitle = document.title;
@@ -20,17 +23,17 @@ export default function createView(URI) {
         return;
     }
 
-    // change view to loading screen
+    // change view to loading screen SEE LOADING.JS
     render(null, router('/loading'));
 
     let request = {
         headers: getHeaders() // this is using the the getHeaders in auth.js
     }
-    fetchData(route.state, request).then((props) => {
-        document.title = currentTitle;
-        app.innerHTML = ``
-        history.pushState({...props, lastUri: route.uri }, null, route.uri)
-        render(props, route);
+    fetchData(route.state, request).then((props) => { //CALLING FUNCTION FETCH DATA FROM FETCHDATA.JS
+        document.title = currentTitle; //CHANGE TITLE
+        app.innerHTML = `` //CHANGE INNER HTML
+        history.pushState({...props, lastUri: route.uri }, null, route.uri) //LOOK MORE INTO HISTORY.PUSHSTATE
+        render(props, route); //CALLING RENDER FUNCTION
     });
 }
 

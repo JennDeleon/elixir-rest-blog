@@ -45,9 +45,9 @@ export default function addLoginEvent() {
 export function getHeaders() {
     const token = localStorage.getItem("access_token");
     return token
-        ? {
+        ? { //ternary statement IF TOKEN IS DEFINED, RETURN FIRST THING AFTER ?, IF NOT DEFINED, RETURN THING AFTER :
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + `${token}`}
+            'Authorization': 'Bearer ' + `${token}`} //TYPE OF ACCESS TOKEN
         : {'Content-Type': 'application/json'};
 }
 
